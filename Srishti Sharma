@@ -1,0 +1,230 @@
+Q1. Assign and print the roll no, phone no, and address of two students having names "sam" and "John" respectively by creating two object of class 'student '. 
+
+=>
+class Student {
+  int rollNo;
+  String name;
+  long phoneNo; // Use long for phone numbers
+  String address;
+
+  // Assign values to student details
+  public void setDetails(String name, int rollNo, long phoneNo, String address) {
+    this.name = name;
+    this.rollNo = rollNo;
+    this.phoneNo = phoneNo;
+    this.address = address;
+  }
+
+  // Print student details
+  public void printDetails() {
+    System.out.println("Name: " + name);
+    System.out.println("Roll No: " + rollNo);
+    System.out.println("Phone No: " + phoneNo);
+    System.out.println("Address: "  + address);
+    System.out.println(); // Add an empty line for better formatting
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    // Create Student objects for Sam and John
+    Student sam = new Student();
+    Student john = new Student();
+
+    // Assign details to each student
+    sam.setDetails("Sam", 123, 1234567890L, "123 Main St");
+    john.setDetails("John", 456, 9876543210L, "456 Elm St");
+
+    // Print details of each student
+    sam.printDetails();
+    john.printDetails();
+  }
+}
+
+———————————————————————————————————————————————————————————
+Q2. Create a class calculator with two variables , a constructor with no parameter and two functions for add and multiply. add functionality for over loading some and multiply. create a class testapp with main function and create object of calculator class to call functions.
+
+=>
+class Calculator {
+  int num1;
+  int num2;
+
+  // Constructor with no parameters (default values are 0)
+  public Calculator() {
+    this.num1 = 0;
+    this.num2 = 0;
+  }
+
+  // Function to add two integers
+  public int add(int a, int b) {
+    return a + b;
+  }
+
+  // Overloaded function to add two doubles
+  public double add(double a, double b) {
+    return a + b;
+  }
+
+  // Function to multiply two integers
+  public int multiply(int a, int b) {
+    return a * b;
+  }
+
+  // Overloaded function to multiply two doubles
+  public double multiply(double a, double b) {
+    return a * b;
+  }
+}
+
+public class TestApp {
+  public static void main(String[] args) {
+    // Create a Calculator object
+    Calculator calc = new Calculator();
+
+    // Call add functions with different data types
+    int sumIntegers = calc.add(5, 3);
+    double sumDoubles = calc.add(2.5, 1.8);
+
+    // Call multiply functions with different data types
+    int productIntegers = calc.multiply(4, 2);
+    double productDoubles = calc.multiply(3.14, 2.0);
+
+    // Print the results
+    System.out.println("Sum of integers (5 + 3): " + sumIntegers);
+    System.out.println("Sum of doubles (2.5 + 1.8): " + sumDoubles);
+    System.out.println("Product of integers (4 * 2): " + productIntegers);
+    System.out.println("Product of doubles (3.14 * 2.0): " + productDoubles);
+  }
+}
+
+———————————————————————————————————————————————————————————
+Q3. Write  a java program for method overloading and constructor overloading ?
+
+=>
+class Shape {
+  private String name;
+
+  // Constructor with no parameter (default name)
+  public Shape() {
+    this.name = "Generic Shape";
+  }
+
+  // Constructor with parameter to set name
+  public Shape(String name) {
+    this.name = name;
+  }
+
+  // Method to calculate area (default implementation for base Shape class)
+  public double getArea() {
+    return 0.0; // Default area for generic shapes
+  }
+
+  // Print shape details
+  public void printDetails() {
+    System.out.println("Name: " + name);
+    System.out.println("Area: " + getArea());
+  }
+}
+
+class Circle extends Shape {
+  private double radius;
+
+  // Constructor with radius for Circle
+  public Circle(double radius) {
+    super("Circle"); // Call superclass constructor to set name
+    this.radius = radius;
+  }
+
+  // Overridden method to calculate area for Circle
+  @Override
+  public double getArea() {
+    return Math.PI * radius * radius;
+  }
+}
+
+class Rectangle extends Shape {
+  private double length;
+  private double width;
+
+  // Constructor with length and width for Rectangle
+  public Rectangle(double length, double width) {
+    super("Rectangle"); // Call superclass constructor to set name
+    this.length = length;
+    this.width = width;
+  }
+
+  // Overridden method to calculate area for Rectangle
+  @Override
+  public double getArea() {
+    return length * width;
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    // Create Shape objects (using default constructor)
+    Shape shape1 = new Shape();
+    shape1.printDetails(); // Prints "Name: Generic Shape", "Area: 0.0"
+
+    // Create Circle object
+    Circle circle = new Circle(5.0);
+    circle.printDetails(); // Prints "Name: Circle", "Area: 78.53981633974483"
+
+    // Create Rectangle object
+    Rectangle rectangle = new Rectangle(4.0, 6.0);
+    rectangle.printDetails(); // Prints "Name: Rectangle", "Area: 24.0"
+  }
+}
+ ________________________________________________________________________________________________________________________________
+
+Q4.Write a program in java to create a class bird also declare diff parameterized constructor to display the name of birds?
+
+=>
+class Bird {
+  private String name;
+
+  // Constructor with no parameter (default name)
+  public Bird() {
+    this.name = "Unknown";
+  }
+
+  // Constructor with bird name parameter
+  public Bird(String name) {
+    this.name = name;
+  }
+
+  // Method to display bird name
+  public void printName() {
+    System.out.println("Bird name: " + name);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    // Create Bird objects with different constructors
+    Bird bird1 = new Bird(); // Uses default constructor
+    bird1.printName(); // Output: Bird name: Unknown
+
+    Bird bird2 = new Bird("Sparrow"); // Uses constructor with name
+    bird2.printName(); // Output: Bird name: Sparrow
+
+    Bird bird3 = new Bird("Eagle"); // Uses constructor with name
+    bird3.printName(); // Output: Bird name: Eagle
+  }
+}
+ ________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
